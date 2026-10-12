@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Delay</title>
+    <title>Display Start and End Time with a Delay</title>
 </head>
 <body>
     <form method="post">
@@ -19,9 +19,15 @@ if (isset($_POST['sec'])) {
     if ($sec === false || $sec < 0 || $sec > 60) {
         echo "Enter a whole number from 0 to 60.";
     } else {
+        $startTime = date("h:i:s A");
+        echo "Start time: " . $startTime . "<br>";
         echo "Waiting for $sec seconds...<br>";
+
         sleep($sec);
-        echo "Program executed";
+
+        $endTime = date("h:i:s A");
+        echo "End time: " . $endTime . "<br>";
+        echo "Delay: $sec seconds";
     }
 }
 ?>
